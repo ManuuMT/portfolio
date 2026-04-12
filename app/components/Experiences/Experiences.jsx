@@ -6,6 +6,7 @@ import { useRef } from "react";
 import cap from "@/assets/images/logos/logo-capgemini.png";
 import utn from "@/assets/images/logos/logo-utn.png";
 import attlos from "@/assets/images/logos/logo-attlos.png";
+import indra from "@/assets/images/logos/logo-indra.png";
 import worksut from "@/assets/images/logos/logo-worksut.png";
 import ExperienceCard from "./ExperienceCard";
 import ExperienceYear from "./ExperienceYear";
@@ -30,6 +31,15 @@ const jobsLeft = [
     aurora: "utn-aurora",
     delay: 1,
   },
+  {
+    company: "INDRA",
+    logo: indra,
+    title: "FRONTEND DEVELOPER",
+    dateFrom: "05/2025",
+    dateTo: "-",
+    aurora: "indra-aurora",
+    delay: 2,
+  },
 ];
 
 const jobsRight = [
@@ -47,7 +57,7 @@ const jobsRight = [
     logo: cap,
     title: "FRONTEND DEVELOPER",
     dateFrom: "12/2023",
-    dateTo: "-",
+    dateTo: "04/2025",
     aurora: "cap-aurora",
     delay: 1.5,
   },
@@ -56,23 +66,27 @@ const jobsRight = [
 const years = [
   {
     year: "2021",
-    class:
-      "absolute top-0 left-1/2 -translate-x-1/2 pr-32 text-3xl text-white ",
+    class: "absolute top-0 left-1/2 -translate-x-1/2 pr-32 text-3xl text-white",
   },
   {
     year: "2022",
     class:
-      "absolute top-1/4 left-1/2 -translate-x-1/2 pl-32 text-3xl text-white ",
+      "absolute top-[20%] left-1/2 -translate-x-1/2 pl-32 text-3xl text-white",
   },
   {
     year: "2023",
     class:
-      "absolute top-2/4 left-1/2 -translate-x-1/2 pr-32 text-3xl text-white ",
+      "absolute top-[40%] left-1/2 -translate-x-1/2 pr-32 text-3xl text-white",
   },
   {
     year: "2024",
     class:
-      "absolute top-3/4 left-1/2 -translate-x-1/2 pl-32 text-3xl text-white ",
+      "absolute top-[60%] left-1/2 -translate-x-1/2 pl-32 text-3xl text-white",
+  },
+  {
+    year: "2025",
+    class:
+      "absolute top-[80%] left-1/2 -translate-x-1/2 pl-32 text-3xl text-white",
   },
 ];
 

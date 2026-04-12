@@ -32,7 +32,7 @@ const variant = {
   }),
 };
 
-const title = "anu/>".split("");
+const title = "anu maldonado/>".split("");
 
 export default function Navbar() {
   // * Hooks
