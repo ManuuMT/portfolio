@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container flex justify-center">
         <div className="w-full flex justify-center text-2xl py-4 px-8">
           <p>
-            © 2025 all rights reserved - designed and developed with ❤️ by manu
+            © 2026 all rights reserved - designed and developed with ❤️ by manu
           </p>
         </div>
       </div>

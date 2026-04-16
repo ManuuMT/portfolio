@@ -1,63 +1,59 @@
-import Link from "next/link";
+"use client";
+
 import { useState } from "react";
-
-const socialArray = [
-  {
-    title: "email",
-    message: "emtuero@hotmail.com",
-    url: "mailto:emtuero@hotmail.com;subject=Hello",
-    icon: "email",
-  },
-  {
-    title: "linkedin",
-    message: "emanuel-mt",
-    url: "https://www.linkedin.com/in/emanuel-mt",
-    icon: "linkedin",
-  },
-  {
-    title: "github",
-    message: "altermanu",
-    url: "https://github.com/AlterManu",
-    icon: "github",
-  },
-];
-
-const iconStyle = {
-  borderLeft: "10px solid transparent",
-  borderRight: "10px solid transparent",
-  borderTop: "10px solid var(--main-color)",
-};
-
-const SocialNetwork = ({ social, selected, setSelected }) => {
-  return (
-    <div className="flex">
-      <div className="w-0 h-0 rotate-[-135deg] mt-2 mr-1" style={iconStyle} />
-      <Link
-        href={social.url}
-        className="relative w-full"
-        onMouseEnter={() => setSelected(social.title)}
-        onMouseLeave={() => setSelected(null)}
-      >
-        <div
-          className="bg-[var(--main-color)] w-full h-full absolute z-20 top-0 left-0 transition-all duration-300 cursor-pointer flex items-center px-2"
-          style={{
-            clipPath:
-              social.title === selected ? "inset(0 0 0)" : "inset(50% 0 50%)",
-          }}
-        >
-          <h3 className="text-[#000] text-4xl">{social.message}</h3>
-        </div>
-        <h3>{social.title}</h3>
-      </Link>
-    </div>
-  );
-};
+import SocialNetwork from "./SocialNetwork";
+import Toast from "./Toast";
 
 export default function Contact() {
+  // * Hooks
   const [selected, setSelected] = useState(null);
+  const [isToastOpen, setIsToastOpen] = useState(false);
+
+  // * Methods
+  const setClipboard = async () => {
+    const clipboardItemData = {
+      "text/plain": "emtuero@hotmail.com",
+    };
+    const clipboardItem = new ClipboardItem(clipboardItemData);
+    await navigator.clipboard.write([clipboardItem]);
+    setIsToastOpen(true);
+
+    setTimeout(() => {
+      setIsToastOpen(false);
+    }, 3000);
+  };
+
+  const socialArray = [
+    {
+      title: "email",
+      message: "emtuero@hotmail.com",
+      url: "",
+      icon: "email",
+      action: setClipboard,
+    },
+    {
+      title: "linkedin",
+      message: "emanuel-mt",
+      url: "https://www.linkedin.com/in/emanuel-mt",
+      icon: "linkedin",
+      action: null,
+    },
+    {
+      title: "github",
+      message: "altermanu",
+      url: "https://github.com/AlterManu",
+      icon: "github",
+      action: null,
+    },
+  ];
 
   return (
     <section className="w-screen my-[40vh] flex justify-center">
+      <Toast
+        message={"email copied to clipboard :)"}
+        isToastOpen={isToastOpen}
+      />
+
       <div className="container">
         <div className="w-full flex justify-center items-center">
           <div className="flex justify-center gap-20 text-6xl">
